@@ -15,10 +15,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
   <header>
     <div class="container header-container">
       <div class="logo">🔎 Mystery Dining</div>
-      <nav>
+      <nav aria-label="Primary navigation">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
@@ -29,54 +30,61 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Experience the Unknown</h1>
-      <p>
-        Reserve your seat and embark on a surprise culinary adventure.
-      </p>
-      <div class="reservation-card">
-        <h2>Reserve Now</h2>
-        <div class="form-placeholder">
-          <form>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Zip">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control" placeholder="Party Size">
-            </div>
-            <div class="mb-3">
-              <select class="form-select">
-                <option selected>Choose...</option>
-                <option value="mild">Mild</option>
-                <option value="med">Medium</option>
-                <option value="spicy">Spicy</option>
-              </select>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
-                Would you like to pretend it's your birthday for free cake?
-              </label>
-            </div>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox">
-              <label class="form-check-label">
-                I accept that I have no idea where I'll dine, and that's OK.
-              </label>
-            </div>
-            <a href="#" class="btn btn-lg btn-primary">Book My Mystery Meal!</a>
-          </form>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Experience the Unknown</h1>
+        <p>
+          Reserve your seat and embark on a surprise culinary adventure.
+        </p>
+        <div class="reservation-card">
+          <h2 id="reservation-heading">Reserve Now</h2>
+          <div class="form-placeholder">
+            <form aria-labelledby="reservation-heading">
+              <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input id="name" name="name" type="text" class="form-control" autocomplete="name" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" autocomplete="email" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="zip">ZIP code</label>
+                <input id="zip" name="zip" type="text" class="form-control" autocomplete="postal-code" inputmode="numeric" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="party-size">Party size</label>
+                <input id="party-size" name="party-size" type="number" class="form-control" min="1" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="spice-level">Preferred spice level</label>
+                <select id="spice-level" name="spice-level" class="form-select" required>
+                  <option value="" selected disabled>Choose a spice level</option>
+                  <option value="mild">Mild</option>
+                  <option value="medium">Medium</option>
+                  <option value="spicy">Spicy</option>
+                </select>
+              </div>
+              <div class="form-check mb-3">
+                <input id="birthday" name="birthday" class="form-check-input" type="checkbox">
+                <label class="form-check-label" for="birthday">
+                  Would you like to pretend it's your birthday for free cake?
+                </label>
+              </div>
+              <div class="form-check mb-3">
+                <input id="accept-mystery" name="accept-mystery" class="form-check-input" type="checkbox" required>
+                <label class="form-check-label" for="accept-mystery">
+                  I accept that I have no idea where I'll dine, and that's OK.
+                </label>
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary">Book My Mystery Meal!</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
